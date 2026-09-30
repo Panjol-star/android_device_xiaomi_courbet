@@ -11,10 +11,9 @@ BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 # Inherit from proprietary files for miuicamera
--include device/xiaomi/miuicamera-sweet/BoardConfig.mk
+include device/xiaomi/miuicamera-sweet/BoardConfig.mk
 
 DEVICE_PATH := device/xiaomi/courbet
-BUILD_BROKEN_DUP_RULES := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := courbet,courbetin
@@ -50,6 +49,7 @@ BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 BOARD_ODMIMAGE_PARTITION_RESERVED_SIZE := 104857600
+
 ifeq ($(WITH_GMS),true)
 BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 104857600
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 104857600
