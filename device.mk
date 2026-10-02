@@ -78,14 +78,14 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_courbet/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_courbet/com.nxp.mifare.xml
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
-
-# lunaris overlay
+# Overlays
 PRODUCT_PACKAGES += \
-    SettingsResDevice
+    SettingsResDevice \
+    FrameworksResDevice \
+    SystemUIResDevice \
+    ApertureOverlayDevice \
+    LineageSDKResDevice \
+    SettingsProviderResDevice
 
 # Perf
 PRODUCT_PACKAGES += \
