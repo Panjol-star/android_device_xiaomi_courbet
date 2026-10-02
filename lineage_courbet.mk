@@ -10,7 +10,7 @@ TARGET_SUPPORTS_OMX_SERVICE := false
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Set Miuicamera version
-TARGET_USES_LEICA_HOLY45 := true
+TARGET_USES_STOCK_MIUICAMERA := true
 
 # Inherit from courbet device
 $(call inherit-product, device/xiaomi/courbet/device.mk)
