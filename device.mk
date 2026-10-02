@@ -83,6 +83,10 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+# lunaris overlay
+PRODUCT_PACKAGES += \
+    SettingsResDevice
+
 # Perf
 PRODUCT_PACKAGES += \
     libqti-perfd-client
@@ -115,3 +119,5 @@ PRODUCT_PACKAGES += \
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/courbet/courbet-vendor.mk)
+$(call soong_config_set,surfaceflinger,frame_rate_category_high,90)
+$(call soong_config_set,surfaceflinger,frame_rate_category_min,60)
