@@ -398,12 +398,6 @@
          meanings. -->
     <integer name="config_defaultRingVibrationIntensity">3</integer>
 
-    <!-- MMS user agent string, for example OemNameDeviceName
-         If the string contains a '%s' format string then that substring will be replaced
-         with the value of Build.MODEL , ie
-         <string name="config_mms_user_agent">OemName%s</string> -->
-    <string name="config_mms_user_agent" translatable="false">mi11lite4g</string>
-
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>
