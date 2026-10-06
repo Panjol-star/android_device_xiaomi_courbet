@@ -7,6 +7,9 @@
 # Inherit from sm6150-common
 include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
+# Inherit from proprietary files for miuicamera
+include device/xiaomi/miuicamera-sweet/BoardConfig.mk
+
 DEVICE_PATH := device/xiaomi/courbet
 
 # Assert
@@ -19,7 +22,6 @@ TARGET_PROVIDES_AUDIO_EXTNS := true
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 
 # Kernel
-TARGET_KERNEL_CONFIG := vendor/sdmsteppe-perf_defconfig
 TARGET_KERNEL_CONFIG += vendor/courbet.config
 
 # Partitions
@@ -27,8 +29,8 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
 BOARD_DTBOIMG_PARTITION_SIZE := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 134217728
-BOARD_SUPER_PARTITION_SIZE := 9126805504
 
+BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # (BOARD_SUPER_PARTITION_SIZE - 4194304) 4MiB overhead
 
 # Properties
@@ -42,10 +44,7 @@ TARGET_SCREEN_DENSITY := 440
 SOONG_CONFIG_xiaomiSm6150Vars_livedisplay_support_anti_flicker ?= true
 
 # Vendor security patch level
-VENDOR_SECURITY_PATCH := 2025-06-01
+VENDOR_SECURITY_PATCH := 2023-10-01
 
 # Inherit from proprietary files
 include vendor/xiaomi/courbet/BoardConfigVendor.mk
-
-# MIUICamera
--include vendor/miuicamera-sweet/BoardConfig.mk
