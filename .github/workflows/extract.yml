@@ -1,0 +1,51 @@
+name: Extract Stock ROM
+
+on:
+  workflow_dispatch:
+    inputs:
+      rom_url:
+        description: 'URL Stock ROM (File ZIP)'
+        required: true
+        type: string
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout branch saat ini
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependensi sistem
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y aria2 p7zip-full brotli python3-pip
+
+      - name: 2. Clone dependensi extract-tools & update-engine
+        run: |
+          git clone https://github.com/LineageOS/android_prebuilts_extract-tools.git android/prebuilts/extract-tools
+          git clone https://github.com/LineageOS/android_tools_extract-utils.git android/tools/extract-utils
+          git clone https://github.com/LineageOS/android_system_update_engine.git android/system/update_engine
+
+      - name: 3. Clone device tree sm6150-common
+        run: |
+          git clone https://github.com/Panjol-star/android_device_motorola_sm6375-common.git sm6150-common
+
+      - name: 4. Ubah shebang pada extract-files.py
+        run: |
+          sed -i '1s|.*|#!/usr/bin/env -S PYTHONPATH=../extract-utils python3|' extract-files.py
+          chmod +x extract-files.py
+
+      - name: Download Stock ROM
+        run: |
+          aria2c -x 16 -s 16 -o stock_rom.zip "${{ inputs.rom_url }}"
+
+      - name: 5. Eksekusi extract-files.py
+        run: |
+          PYTHONPATH=android/tools/extract-utils ./extract-files.py stock_rom.zip
+          
