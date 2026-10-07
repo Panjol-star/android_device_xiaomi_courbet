@@ -8,6 +8,10 @@ on:
         required: true
         type: string
 
+# Memberikan izin akses write untuk push ke repository
+permissions:
+  contents: write
+
 jobs:
   extract:
     runs-on: ubuntu-latest
@@ -15,6 +19,13 @@ jobs:
     steps:
       - name: 1. Checkout branch saat ini
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Git Configuration
+        run: |
+          git config --global user.email "263357069+Panjol-star@users.noreply.github.com"
+          git config --global user.name "panjol-star"
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -41,6 +52,11 @@ jobs:
           sed -i '1s|.*|#!/usr/bin/env -S PYTHONPATH=android/tools/extract-utils python3|' extract-files.py
           chmod +x extract-files.py
 
+      - name: FIX - Buat Symlink Device Tree (Mencegah FileNotFoundError)
+        run: |
+          mkdir -p android/device/xiaomi
+          ln -s "$(pwd)" android/device/xiaomi/courbet
+
       - name: Download Stock ROM
         run: |
           aria2c -x 16 -s 16 -o stock_rom.zip "${{ inputs.rom_url }}"
@@ -48,4 +64,30 @@ jobs:
       - name: 5. Eksekusi extract-files.py
         run: |
           PYTHONPATH=android/tools/extract-utils ./extract-files.py stock_rom.zip
-          
+
+      - name: 6. Commit dan Push Hasil Ekstraksi ke Repo Vendor
+        run: |
+          # Menentukan direktori vendor hasil ekstraksi
+          VENDOR_DIR=""
+          if [ -d "android/vendor/xiaomi/courbet" ]; then
+            VENDOR_DIR="android/vendor/xiaomi/courbet"
+          elif [ -d "vendor/xiaomi/courbet" ]; then
+            VENDOR_DIR="vendor/xiaomi/courbet"
+          fi
+
+          if [ -n "$VENDOR_DIR" ]; then
+            echo "Memproses upload dari $VENDOR_DIR..."
+            cd "$VENDOR_DIR"
+            git init
+            git config user.email "263357069+Panjol-star@users.noreply.github.com"
+            git config user.name "panjol-star"
+            git checkout -b test
+            git add .
+            git commit -m "courbet: Push extracted proprietary blobs"
+            
+            # Ganti 'android_vendor_xiaomi_courbet' dengan nama repo vendor target kamu di GitHub
+            git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Panjol-star/android_vendor_xiaomi_courbet.git HEAD:test
+          else
+            echo "Folder vendor tidak ditemukan!"
+            exit 1
+          fi
