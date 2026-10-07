@@ -38,7 +38,7 @@ jobs:
 
       - name: 4. Ubah shebang pada extract-files.py
         run: |
-          sed -i '1s|.*|#!/usr/bin/env -S PYTHONPATH=../extract-utils python3|' extract-files.py
+          sed -i '1s|.*|#!/usr/bin/env -S PYTHONPATH=android/tools/extract-utils python3|' extract-files.py
           chmod +x extract-files.py
 
       - name: Download Stock ROM
