@@ -307,8 +307,8 @@ vendor/lib64/libmegface.so:vendor/lib64/libfacedet.so;FIX_SONAME
 vendor/firmware/CAMERA_ICP.elf
 
 # Display configs
-vendor/etc/qdcm_calib_data_xiaomi_36_02_0a_mp_cmd_mode_dsc_dsi_panel.xml|ae8ef47ad0aaf184bfa8689fd3749f023d6134a5
-vendor/etc/qdcm_calib_data_xiaomi_42_02_0b_mp_cmd_mode_dsc_dsi_panel.xml|5806949c8756babe202e68ec75575ef639c310b9
+vendor/etc/qdcm_calib_data_xiaomi_36_02_0a_mp_cmd_mode_dsc_dsi_panel.xml
+vendor/etc/qdcm_calib_data_xiaomi_42_02_0b_mp_cmd_mode_dsc_dsi_panel.xml
 product/etc/displayconfig/display_id_4630946480857061761.xml:vendor/etc/displayconfig/display_id_4630946480857061761.xml
 product/etc/displayconfig/display_id_4630946545580055169.xml:vendor/etc/displayconfig/display_id_4630946545580055169.xml
 vendor/etc/hdr_config.cfg

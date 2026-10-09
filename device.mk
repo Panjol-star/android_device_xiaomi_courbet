@@ -95,3 +95,7 @@ PRODUCT_PACKAGES += \
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/courbet/courbet-vendor.mk)
+$(call soong_config_set,surfaceflinger,frame_rate_category_high,90)
+$(call soong_config_set,surfaceflinger,frame_rate_category_min,60)
+# Inherit MiuiCamera
+$(call inherit-product, device/xiaomi/miuicamera-sweet/device.mk)
