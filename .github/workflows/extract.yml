@@ -59,16 +59,6 @@ jobs:
     needs: download-firmware
     runs-on: ubuntu-latest
     steps:
-      - name: Maximize Build Disk Space
-        uses: easydiff/maximize-build-space@master
-        with:
-          root-reserve-mb: 512
-          swap-size-mb: 2048
-          remove-dotnet: 'true'
-          remove-android: 'true'
-          remove-haskell: 'true'
-          remove-codeql: 'true'
-
       - name: Install Required Packages
         run: |
           sudo apt-get update
