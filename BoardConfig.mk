@@ -27,7 +27,7 @@ DEVICE_MANIFEST_COURBET_FILES := \
 
 # Kernel
 TARGET_KERNEL_CONFIG := vendor/sdmsteppe-perf_defconfig
-TARGET_KERNEL_CONFIG += vendor/courbet.config
+TARGET_KERNEL_CONFIG += courbet_defconfig
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
