@@ -64,14 +64,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y brotli e2fsprogs clang aria2 zip unzip python3 python3-pip git
 
-      - name: Setup Directory Structure
-        run: |
-          mkdir -p android/prebuilts/extract-tools/linux-x86/bin
-          mkdir -p android/tools
-          mkdir -p android/system
-          mkdir -p android/device/xiaomi/courbet
-          mkdir -p android/vendor/xiaomi/courbet
-
       - name: Clone LineageOS Extract Tools & Update Engine
         run: |
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_extract-tools.git android/prebuilts/extract-tools
