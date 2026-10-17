@@ -8,7 +8,7 @@
 include device/xiaomi/sm6150-common/BoardConfigCommon.mk
 
 # Inherit from proprietary files for miuicamera
--include device/xiaomi/miuicamera-sweet/BoardConfig.mk
+include device/xiaomi/miuicamera-sweet/BoardConfig.mk
 
 DEVICE_PATH := device/xiaomi/courbet
 
