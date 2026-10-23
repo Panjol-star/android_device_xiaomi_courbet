@@ -55,9 +55,6 @@ TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
 
-# Screen density
-TARGET_SCREEN_DENSITY := 440
-
 # Vendor security patch level
 VENDOR_SECURITY_PATCH := 2023-10-01
 
