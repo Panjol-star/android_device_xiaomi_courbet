@@ -51,8 +51,6 @@ BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 104857600
 BOARD_ODMIMAGE_PARTITION_RESERVED_SIZE := 104857600
 
 # Properties
-TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
 
 # Vendor security patch level
