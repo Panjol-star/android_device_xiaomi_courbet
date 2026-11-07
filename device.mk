@@ -92,3 +92,6 @@ $(call inherit-product, vendor/xiaomi/courbet/courbet-vendor.mk)
 
 # MIUICamera
 $(call inherit-product-if-exists, vendor/miuicamera-courbet/device.mk)
+
+$(call soong_config_set,surfaceflinger,frame_rate_category_high,90)
+$(call soong_config_set,surfaceflinger,frame_rate_category_min,60)

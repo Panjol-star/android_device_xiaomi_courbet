@@ -27,5 +27,11 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="courbet_global-user 13 RKQ1.210614.002 14.0.4.0.TKQMIXM release-keys" \
     BuildFingerprint=Xiaomi/courbet_global/courbet:13/RKQ1.210614.002/V14.0.4.0.TKQMIXM:user/release-keys
 
-# Miui camera
 TARGET_USES_MIUICAMERA := true
+WITH_PIXEL_LAUNCHER := false
+TARGET_USE_MAPS := false
+TARGET_USE_FILES := false
+TARGET_USE_GPHOTOS := false
+TARGET_OPTIMIZED_DEXOPT := true
+TARGET_BOOT_ANIMATION_RES := 1080
+LUNARIS_BUILD_TYPE := UNOFFICIAL
