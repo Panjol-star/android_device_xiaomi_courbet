@@ -26,3 +26,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="courbet_global-user 13 RKQ1.210614.002 14.0.4.0.TKQMIXM release-keys" \
     BuildFingerprint=Xiaomi/courbet_global/courbet:13/RKQ1.210614.002/V14.0.4.0.TKQMIXM:user/release-keys
+
+# Miui camera
+TARGET_USES_MIUICAMERA := true

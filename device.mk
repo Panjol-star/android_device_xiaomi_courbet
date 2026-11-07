@@ -90,9 +90,5 @@ PRODUCT_PACKAGES += \
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/courbet/courbet-vendor.mk)
 
-# GAPPS
-WITH_GMS := true
-$(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
-
 # MIUICamera
-$(call inherit-product-if-exists, vendor/miuicamera-sweet/device.mk)
+$(call inherit-product-if-exists, vendor/miuicamera-courbet/device.mk)
