@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Remotes -->
+  <remote name="panjol" fetch="https://github.com/Panjol-star" />
+  <remote name="szes-labs" fetch="https://github.com/Szes-Labs" />
+  <remote name="lineage" fetch="https://github.com/LineageOS" />
+  <remote name="crdroid" fetch="https://github.com/crdroidandroid" />
+
+  <!-- Device Trees -->
+  <project path="device/xiaomi/courbet" name="android_device_xiaomi_courbet" remote="panjol" />
+  <project path="device/xiaomi/sm6150-common" name="android_device_xiaomi_sm6150-common" remote="panjol" />
+
+  <!-- Vendor Trees -->
+  <project path="vendor/xiaomi/courbet" name="proprietary_vendor_xiaomi_courbet" remote="panjol" clone-depth="1" />
+  <project path="vendor/xiaomi/sm6150-common" name="proprietary_vendor_xiaomi_sm6150-common" remote="panjol" clone-depth="1" />
+  <project path="vendor/miuicamera-courbet" name="vendor_miuicamera-courbet" remote="szes-labs" clone-depth="1" />
+
+  <!-- Kernel Tree -->
+  <project path="kernel/xiaomi/sm6150" name="android_kernel_xiaomi_sm6150" remote="panjol" />
+
+  <!-- Hardware Trees -->
+  <project path="hardware/xiaomi" name="android_hardware_xiaomi" remote="lineage" revision="lineage-23.2" clone-depth="1" />
+  <project path="hardware/dolby" name="android_hardware_dolby" remote="crdroid" revision="LunarisDolby" clone-depth="1" />
+
+</manifest>
