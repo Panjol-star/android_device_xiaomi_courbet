@@ -23,6 +23,9 @@ DEVICE_MANIFEST_COURBET_FILES := \
     $(DEVICE_PATH)/configs/hidl/manifest-nfc.xml
 
 # Kernel
+TARGET_KERNEL_CLANG_VERSION := r563880c
+TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/host/linux-x86/clang-$(TARGET_KERNEL_CLANG_VERSION)
+
 TARGET_KERNEL_CONFIG := vendor/sdmsteppe-perf_defconfig
 TARGET_KERNEL_CONFIG += vendor/courbet.config
 
@@ -52,6 +55,7 @@ BOARD_ODMIMAGE_PARTITION_RESERVED_SIZE := 104857600
 TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
+
 # Screen density
 TARGET_SCREEN_DENSITY := 440
 
